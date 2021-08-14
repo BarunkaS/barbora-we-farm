@@ -18,6 +18,14 @@ db_port = os.environ.get('WEFARM_PORT')
 db_db = os.environ.get('WEFARM_DB')
 
 # Connect to PostgreSQL
+postgres_connection = psycopg2.connect(user=db_user,
+                              password=db_pwd,
+                              host=db_host,
+                              port=db_port,
+                              database=db_db)
+
+# Create a cursor to perform database operations
+cursor = postgres_connection.cursor()
 
 # Read file paths
 daily_vouchers_paths = glob.glob("data/vouchers/*")
