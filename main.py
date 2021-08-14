@@ -27,6 +27,11 @@ postgres_connection = psycopg2.connect(user=db_user,
 # Create a cursor to perform database operations
 cursor = postgres_connection.cursor()
 
+postgres_insert_query = """ INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (1,'kn')"""
+
+cursor.execute(postgres_insert_query)
+postgres_connection.commit() 
+
 # Read file paths
-daily_vouchers_paths = glob.glob("data/vouchers/*")
+#daily_vouchers_paths = glob.glob("data/vouchers/*")
 
