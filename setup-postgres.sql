@@ -8,7 +8,7 @@ GRANT pg_read_server_files TO wefarm;
 
 CREATE TABLE IF NOT EXISTS public.codes
 (
-    id integer NOT NULL,
+    id bigint NOT NULL,
     voucher_code text,
     user_id integer,
     product_id integer,
