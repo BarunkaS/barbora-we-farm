@@ -7,6 +7,7 @@ import glob
 from os.path import join, dirname
 import os
 from dotenv import load_dotenv
+import pandas as pd
 
 # Load DB credentials from environment
 dotenv_path = join(dirname(__file__),'.env')
