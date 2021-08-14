@@ -3,6 +3,7 @@ import json
 import pandas as pd
 import itertools
 import numpy as np
+import glob
 
 # Read file path
 file_path = "/Users/barboraspacilova/Documents/DATA/LEARN/Python/WeFarm/" \
@@ -26,3 +27,5 @@ print(voucher_df['status'].unique())
 print(np.unique([*itertools.chain.from_iterable(voucher_df.vendor)]))
 
 # Based on this exploration, final database schema is put together. For details, please refer to README.md
+
+# Question: Do codes historize based on status?
