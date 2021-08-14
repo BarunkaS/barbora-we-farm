@@ -37,6 +37,8 @@ for file in daily_vouchers_paths:
         voucher_file = file.read()
         json_voucher = json.loads(voucher_file)
         voucher_rows = list(json_voucher.values())[0]
+
+# This is unnecessary - get the data from dictionary directly
         file_df = pd.DataFrame(voucher_rows)
         
         df_lenght = file_df.shape[0]
@@ -52,7 +54,7 @@ for file in daily_vouchers_paths:
 
         print(to_insert)
         postgres_insert_query = """INSERT INTO public.codes (id) VALUES (%s)"""
-
+#Continue here, the script iterates through data, but 
         print(cursor.execute(postgres_insert_query,id))
 
         
