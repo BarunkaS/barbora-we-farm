@@ -20,8 +20,7 @@ print(voucher_df.info())
 print(voucher_df.shape)
 print(voucher_df.head())
 
-
-
+#Explore unique values
 print(voucher_df['product'].unique())
 print(voucher_df['status'].unique())
 print(np.unique([*itertools.chain.from_iterable(voucher_df.vendor)]))
