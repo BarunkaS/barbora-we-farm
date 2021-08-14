@@ -21,6 +21,9 @@ for file in daily_vouchers_paths:
 #Open all files to dataframe
 all_vouchers_df = pd.concat(all_dataframes)
 
+# Create index
+all_vouchers_df["id"] = all_vouchers_df.index
+
 # Explore the df
 print(all_vouchers_df.info())
 print(all_vouchers_df.shape)
@@ -31,6 +34,8 @@ print(all_vouchers_df['product'].unique())
 print(all_vouchers_df['status'].unique())
 print(np.unique([*itertools.chain.from_iterable(all_vouchers_df.vendor)]))
 
-# Based on this exploration, final database schema is put together. For details, please refer to README.md
+# Question: Do codes historize based on status? - Answer seems to be no based on count values
+voucher_cnt = all_vouchers_df.groupby('voucher_code')['id'].size()
+print(voucher_cnt.sort_values(axis=0, ascending=False))
 
-# Question: Do codes historize based on status?
+# Based on this exploration, final database schema is put together. For details, please refer to README.md
