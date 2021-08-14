@@ -24,14 +24,23 @@ postgres_connection = psycopg2.connect(user=db_user,
                               port=db_port,
                               database=db_db)
 
-# Create a cursor to perform database operations
+# Create cursor to perform database operations
 cursor = postgres_connection.cursor()
 
-postgres_insert_query = """ INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (1,'kn')"""
+# Read file paths
+daily_vouchers_paths = glob.glob("data/vouchers/*")
+
+# Read all files
+for file in daily_vouchers_paths:
+    with gzip.open(file, "r") as file:
+        voucher_file = file.read()
+        json_voucher = json.loads(voucher_file)
+        voucher_rows = list(json_voucher.values())[0]
+        file_df = pd.DataFrame(voucher_rows)
+
+
+# Writing into the DB
+"""postgres_insert_query = 'INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (1,'kn')'
 
 cursor.execute(postgres_insert_query)
-postgres_connection.commit() 
-
-# Read file paths
-#daily_vouchers_paths = glob.glob("data/vouchers/*")
-
+postgres_connection.commit()"""
