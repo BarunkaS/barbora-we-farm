@@ -38,12 +38,24 @@ for file in daily_vouchers_paths:
         json_voucher = json.loads(voucher_file)
         voucher_rows = list(json_voucher.values())[0]
         file_df = pd.DataFrame(voucher_rows)
-
+        
         df_lenght = file_df.shape[0]
-        print(df_lenght)
 
+        #for row in range(0,1):
+        to_insert=[]
+        code = file_df['voucher_code'][0]
+        user = int(file_df['user_id'][0])
+        id = int(hash(file_df['voucher_code'][0]))
 
+        extend_list = [id,code,user]
+        to_insert.extend(extend_list)
 
+        print(to_insert)
+        postgres_insert_query = """INSERT INTO public.codes (id) VALUES (%s)"""
+
+        print(cursor.execute(postgres_insert_query,id))
+
+        
 
 # Writing into the DB
 """postgres_insert_query = 'INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (1,'kn')'
