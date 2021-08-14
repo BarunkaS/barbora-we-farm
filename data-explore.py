@@ -24,3 +24,5 @@ print(voucher_df.head())
 print(voucher_df['product'].unique())
 print(voucher_df['status'].unique())
 print(np.unique([*itertools.chain.from_iterable(voucher_df.vendor)]))
+
+# Based on this exploration, final database schema is put together. For details, please refer to README.md
