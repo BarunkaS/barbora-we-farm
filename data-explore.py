@@ -1,6 +1,7 @@
 import gzip
 import json
 import pandas as pd
+import itertools
 
 # Read file path
 file_path = "/Users/barboraspacilova/Documents/DATA/LEARN/Python/WeFarm/" \
