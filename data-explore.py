@@ -23,5 +23,5 @@ print(voucher_df.head())
 
 
 print(voucher_df['product'].unique())
-print(type(voucher_df['vendor']))
 print(voucher_df['status'].unique())
+print(np.unique([*itertools.chain.from_iterable(voucher_df.vendor)]))
