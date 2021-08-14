@@ -5,26 +5,31 @@ import itertools
 import numpy as np
 import glob
 
-# Read file path
-file_path = "/Users/barboraspacilova/Documents/DATA/LEARN/Python/WeFarm/" \
-            "barbora-we-farm/data/vouchers/vouchers-2019-11-01.json.gz"
+# Read file paths
+daily_vouchers_paths = glob.glob("data/vouchers/*")
 
-# Open single json to dataframe
-with gzip.open(file_path, "r") as file:
-   voucher_file = file.read()
-   json_voucher = json.loads(voucher_file)
-   voucher_rows = list(json_voucher.values())[0]
-   voucher_df = pd.DataFrame(voucher_rows)
+all_dataframes = []
+
+for file in daily_vouchers_paths:
+    with gzip.open(file, "r") as file:
+        voucher_file = file.read()
+        json_voucher = json.loads(voucher_file)
+        voucher_rows = list(json_voucher.values())[0]
+        file_df = pd.DataFrame(voucher_rows)
+        all_dataframes.append(file_df)
+
+#Open all files to dataframe
+all_vouchers_df = pd.concat(all_dataframes)
 
 # Explore the df
-print(voucher_df.info())
-print(voucher_df.shape)
-print(voucher_df.head())
+print(all_vouchers_df.info())
+print(all_vouchers_df.shape)
+print(all_vouchers_df.head())
 
 #Explore unique values
-print(voucher_df['product'].unique())
-print(voucher_df['status'].unique())
-print(np.unique([*itertools.chain.from_iterable(voucher_df.vendor)]))
+print(all_vouchers_df['product'].unique())
+print(all_vouchers_df['status'].unique())
+print(np.unique([*itertools.chain.from_iterable(all_vouchers_df.vendor)]))
 
 # Based on this exploration, final database schema is put together. For details, please refer to README.md
 
