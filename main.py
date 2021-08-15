@@ -31,6 +31,11 @@ cursor = postgres_connection.cursor()
 # Read file paths
 daily_vouchers_paths = glob.glob("data/vouchers/*")
 
+# Insert queries
+insert_codes = """INSERT INTO public.codes (id,voucher_code,user_id) VALUES (%s,%s,%s)"""
+insert_products = """INSERT INTO public.products (product_id,product_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
+insert_vendors = """INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
+
 # Read all files
 for file in daily_vouchers_paths:
     with gzip.open(file, "r") as file:
@@ -38,18 +43,44 @@ for file in daily_vouchers_paths:
         json_voucher = json.loads(voucher_file)
         voucher_rows = list(json_voucher.values())[0]
 
-        for row in voucher_rows:
-            to_insert=[]
-            code = row['voucher_code']
-            user = row['user_id']
-            id = abs(int(hash(row['voucher_code'])))
+# Getting unique products and vendors
+products = []
+vendors = []
+for row in voucher_rows:
+    products.append(row['product'])
+    vendors.append(row['vendor'])
 
-            extend_list = [id,code,user]
-            to_insert.extend(extend_list)
-            
-        postgres_insert_query = """INSERT INTO public.codes (id) VALUES (%s)"""
-#Continue here, the script iterates through data, but 
-        print(cursor.execute(postgres_insert_query,id))
+# Inserting products and creating IDs
+unique_products = list(set(products))
+product_ids = list(range(1,len(unique_products)+1))
+
+for i in range(0,len(unique_products)-1):
+    cursor.execute(insert_products,(product_ids[i],unique_products[i]))
+    postgres_connection.commit()
+
+# Inserting vendors and creating IDs
+flattened_vendors = []
+
+for sublist in vendors:
+    for item in sublist:
+        flattened_vendors.append(item)
+
+unique_vendors = list(set(flattened_vendors))
+vendor_ids = list(range(1,len(unique_vendors)+1))
+
+for i in range(0,len(unique_vendors)-1):
+    cursor.execute(insert_vendors,(vendor_ids[i],unique_vendors[i]))
+    postgres_connection.commit()
+
+# Inserting into codes
+for row in voucher_rows:
+    voucher_code = row['voucher_code']
+    user_id = row['user_id']
+    id = abs(int(hash(row['voucher_code'])))
+
+    cursor.execute(insert_query_codes,(id,voucher_code,user_id))
+    postgres_connection.commit()
+        
 
         
 
