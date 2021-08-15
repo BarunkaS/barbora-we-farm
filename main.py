@@ -40,18 +40,22 @@ select_products = """SELECT * FROM public.products"""
 select_vendors = """SELECT * FROM public.vendors"""
 
 # Read all files
+all_voucher_rows = []
 for file in daily_vouchers_paths:
     with gzip.open(file, "r") as file:
         voucher_file = file.read()
         json_voucher = json.loads(voucher_file)
         voucher_rows = list(json_voucher.values())[0]
+        all_voucher_rows.append(voucher_rows)
 
 # Getting unique products and vendors
 products = []
 vendors = []
-for row in voucher_rows:
-    products.append(row['product'])
-    vendors.append(row['vendor'])
+
+for item in all_voucher_rows:
+    for row in item:
+        products.append(row['product'])
+        vendors.append(row['vendor'])
 
 # Inserting products and creating IDs
 unique_products = list(set(products))
@@ -75,15 +79,6 @@ for i in range(0,len(unique_vendors)-1):
     cursor.execute(insert_vendors,(vendor_ids[i],unique_vendors[i]))
     postgres_connection.commit()
 
-# Inserting into codes
-for row in voucher_rows:
-    voucher_code = row['voucher_code']
-    user_id = row['user_id']
-    id = abs(int(hash(row['voucher_code'])))
-
-    cursor.execute(insert_codes,(id,voucher_code,user_id))
-    postgres_connection.commit()
-
 # Replace product with product_id in codes
 cursor.execute(select_products)
 result_products = cursor.fetchall()
@@ -94,7 +89,18 @@ products_dict = { j:k for k,j in products_reverted_dict.items()}
 
 codes_raw = voucher_rows
 
-for row in codes_raw :
-    product = row['product']
-    row['product_id'] = products_dict[product]
-    row.pop('product')
+for item in all_voucher_rows:
+    for row in item:
+        product = row['product']
+        row['product_id'] = products_dict[product]
+        row.pop('product')
+
+# Inserting into codes
+for item in all_voucher_rows:
+    for row in item:
+        voucher_code = row['voucher_code']
+        user_id = row['user_id']
+        id = abs(int(hash(row['voucher_code'])))
+
+    cursor.execute(insert_codes,(id,voucher_code,user_id))
+    postgres_connection.commit()
