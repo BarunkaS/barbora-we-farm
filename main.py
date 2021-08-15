@@ -80,12 +80,3 @@ for row in voucher_rows:
 
     cursor.execute(insert_query_codes,(id,voucher_code,user_id))
     postgres_connection.commit()
-        
-
-        
-
-# Writing into the DB
-"""postgres_insert_query = 'INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (1,'kn')'
-
-cursor.execute(postgres_insert_query)
-postgres_connection.commit()"""
