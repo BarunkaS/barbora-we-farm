@@ -76,7 +76,7 @@ for sublist in vendors:
 unique_vendors = list(set(flattened_vendors))
 vendor_ids = list(range(1,len(unique_vendors)+1))
 
-for i in range(0,len(unique_vendors)-1):
+for i in range(0,len(unique_vendors)):
     cursor.execute(insert_vendors,(vendor_ids[i],unique_vendors[i]))
     postgres_connection.commit()
 
