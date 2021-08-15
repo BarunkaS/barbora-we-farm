@@ -86,12 +86,15 @@ for row in voucher_rows:
 
 # Replace product with product_id in codes
 cursor.execute(select_products)
-desc = cursor.description
-column_names = [col[0] for col in desc]
-print(column_names)
-data = {'All-purpose Gum Boots': 1, 'Best Onion Seeds':2}
+result_products = cursor.fetchall()
+print(result_products)
 
-for row in voucher_rows:
-    products.append(row['product'])
-    vendors.append(row['vendor'])
-print(data)
+products_reverted_dict = dict(result_products)
+products_dict = { j:k for k,j in products_reverted_dict.items()}
+
+codes_raw = voucher_rows
+
+for row in codes_raw :
+    product = row['product']
+    row['product_id'] = products_dict[product]
+    row.pop('product')
