@@ -36,6 +36,7 @@ insert_codes = """INSERT INTO public.codes (id,voucher_code,user_id) VALUES (%s,
 insert_products = """INSERT INTO public.products (product_id,product_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
 insert_vendors = """INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
 
+select_products = """SELECT * FROM public.products"""
 # Read all files
 for file in daily_vouchers_paths:
     with gzip.open(file, "r") as file:
@@ -78,5 +79,17 @@ for row in voucher_rows:
     user_id = row['user_id']
     id = abs(int(hash(row['voucher_code'])))
 
-    cursor.execute(insert_query_codes,(id,voucher_code,user_id))
+    cursor.execute(insert_codes,(id,voucher_code,user_id))
     postgres_connection.commit()
+
+# Replace product with product_id in codes
+cursor.execute(select_products)
+desc = cursor.description
+column_names = [col[0] for col in desc]
+print(column_names)
+data = {'All-purpose Gum Boots': 1, 'Best Onion Seeds':2}
+
+for row in voucher_rows:
+    products.append(row['product'])
+    vendors.append(row['vendor'])
+print(data)
