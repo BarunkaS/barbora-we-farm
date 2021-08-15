@@ -61,7 +61,8 @@ for item in all_voucher_rows:
 unique_products = list(set(products))
 product_ids = list(range(1,len(unique_products)+1))
 
-for i in range(0,len(unique_products)-1):
+
+for i in range(0,len(unique_products)):
     cursor.execute(insert_products,(product_ids[i],unique_products[i]))
     postgres_connection.commit()
 
@@ -87,7 +88,7 @@ print(result_products)
 products_reverted_dict = dict(result_products)
 products_dict = { j:k for k,j in products_reverted_dict.items()}
 
-codes_raw = voucher_rows
+codes_raw = all_voucher_rows
 
 for item in all_voucher_rows:
     for row in item:
