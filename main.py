@@ -80,10 +80,10 @@ for i in range(0,len(unique_vendors)):
     cursor.execute(insert_vendors,(vendor_ids[i],unique_vendors[i]))
     postgres_connection.commit()
 
-# Replace product with product_id in codes
+# Replace product and vendor with IDs in codes table
+# Products
 cursor.execute(select_products)
 result_products = cursor.fetchall()
-print(result_products)
 
 products_reverted_dict = dict(result_products)
 products_dict = { j:k for k,j in products_reverted_dict.items()}
