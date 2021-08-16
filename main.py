@@ -33,10 +33,14 @@ cursor = postgres_connection.cursor()
 daily_vouchers_paths = glob.glob("data/vouchers/*")
 
 # INSERT and SELECT queries
-insert_codes = """INSERT INTO public.codes (id,voucher_code,user_id) VALUES (%s,%s,%s)"""
-insert_products = """INSERT INTO public.products (product_id,product_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
-insert_vendors = """INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
-insert_vendors_codes = """INSERT INTO public.code_vendor (code_id,vendor_id) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
+insert_codes = """INSERT INTO public.codes (id,voucher_code,user_id,product_id,status,date_added) 
+                VALUES (%s,%s,%s,%s,%s,%s)"""
+insert_products = """INSERT INTO public.products (product_id,product_name) 
+                VALUES (%s,%s) ON CONFLICT DO NOTHING"""
+insert_vendors = """INSERT INTO public.vendors (vendor_id,vendor_name) 
+                VALUES (%s,%s) ON CONFLICT DO NOTHING"""
+insert_vendors_codes = """INSERT INTO public.code_vendor (code_vendor_id,code_id,vendor_id) 
+                VALUES (%s,%s,%s) ON CONFLICT DO NOTHING"""
 
 select_products = """SELECT * FROM public.products"""
 select_vendors = """SELECT * FROM public.vendors"""
