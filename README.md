@@ -1,4 +1,7 @@
-# barbora-we-farm
+# WeFarm voucher codes processing
+
+Goal of this repository is to process raw voucher codes as coming from our platform to a PostgreSQL database.
+
 
 ## To-Do
 
@@ -7,14 +10,14 @@
 3. DONE - Develop final schema
 4. DONE - Created PostgreSQL to save to 
 5. DONE - Separate file for db setup
-6. Load json to the db
+6. DONE - Load json to the db
     - DONE - Load products to db
     - DONE - Load vendors to db
     - DONE - Change codes data with product_id
-    - Load {code: list of vendors} in a dict
-    - Load vendor names and ids in a dict
-    - Replace items in each list of vendors with IDs from vendor dict
-    - Populate code_vendor to db (for each list item, insert code and item)
+    - DONE - Load {code: list of vendors} in a dict
+    - DONE - Load vendor names and ids in a dict
+    - DONE - Replace items in each list of vendors with IDs from vendor dict
+    - DONE - Populate code_vendor to db (for each list item, insert code and item)
 7. Create reusability
 8. Separate code for readability
 9. DONE - Load all files
