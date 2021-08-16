@@ -48,6 +48,9 @@ for file in daily_vouchers_paths:
         voucher_rows = list(json_voucher.values())[0]
         all_voucher_rows.append(voucher_rows)
 
+# Data for modifications
+codes_raw = all_voucher_rows
+
 # Getting unique products and vendors
 products = []
 vendors = []
