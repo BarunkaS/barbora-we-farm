@@ -97,6 +97,23 @@ for item in all_voucher_rows:
         row['id'] = abs(int(hash(row['voucher_code'])))
         row.pop('product')
 
+# Populating code_vendor
+cursor.execute(select_vendors)
+result_vendors = cursor.fetchall()
+
+vendors_inverted_dict = dict(result_vendors)
+vendors_dict = { j:k for k,j in vendors_inverted_dict.items()}
+
+for item in codes_raw :
+    for row in item:
+        vendors = row['vendor']
+        code = row['id']
+        i = 0
+        for item in vendors:
+            vendor = vendors[i]
+            print(code,vendor,vendors_dict[vendor])
+            i+=1
+
 # Inserting into codes
 for item in all_voucher_rows:
     for row in item:
