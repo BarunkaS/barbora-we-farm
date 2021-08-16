@@ -8,6 +8,7 @@ from os.path import join, dirname
 import os
 from dotenv import load_dotenv
 import pandas as pd
+from datetime import date
 
 # Load DB credentials from environment
 dotenv_path = join(dirname(__file__),'.env')
@@ -35,6 +36,7 @@ daily_vouchers_paths = glob.glob("data/vouchers/*")
 insert_codes = """INSERT INTO public.codes (id,voucher_code,user_id) VALUES (%s,%s,%s)"""
 insert_products = """INSERT INTO public.products (product_id,product_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
 insert_vendors = """INSERT INTO public.vendors (vendor_id,vendor_name) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
+insert_vendors_codes = """INSERT INTO public.code_vendor (code_id,vendor_id) VALUES (%s,%s) ON CONFLICT DO NOTHING"""
 
 select_products = """SELECT * FROM public.products"""
 select_vendors = """SELECT * FROM public.vendors"""
@@ -105,23 +107,26 @@ result_vendors = cursor.fetchall()
 vendors_inverted_dict = dict(result_vendors)
 vendors_dict = { j:k for k,j in vendors_inverted_dict.items()}
 
-for item in codes_raw :
+for item in codes_raw:
     for row in item:
         vendors = row['vendor']
         code = row['id']
         i = 0
         for item in vendors:
             vendor = vendors[i]
-            cursor.execute(insert_vendors_codes,(code+vendors_dict[vendor],code,vendors_dict[vendor]))
+            cursor.execute(insert_vendors_codes,(code,vendors_dict[vendor]))
             postgres_connection.commit()
             i+=1
 
 # Inserting into codes
-for item in all_voucher_rows:
+for item in codes_raw:
     for row in item:
         voucher_code = row['voucher_code']
         user_id = row['user_id']
+        product_id = row['product_id']
+        status = row['status']
+        date_added = date.today()
         id = abs(int(hash(row['voucher_code'])))
 
-    cursor.execute(insert_codes,(id,voucher_code,user_id))
-    postgres_connection.commit()
+        cursor.execute(insert_codes,(id,voucher_code,user_id,product_id,status,date_added))
+        postgres_connection.commit()
