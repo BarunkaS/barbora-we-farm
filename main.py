@@ -83,7 +83,7 @@ for i in range(0,len(unique_vendors)):
     cursor.execute(insert_vendors,(vendor_ids[i],unique_vendors[i]))
     postgres_connection.commit()
 
-# Replace product and vendor with IDs in codes table
+# Replace product and vendor with IDs in codes_raw
 # Products
 cursor.execute(select_products)
 result_products = cursor.fetchall()
@@ -91,9 +91,7 @@ result_products = cursor.fetchall()
 products_reverted_dict = dict(result_products)
 products_dict = { j:k for k,j in products_reverted_dict.items()}
 
-codes_raw = all_voucher_rows
-
-for item in all_voucher_rows:
+for item in codes_raw:
     for row in item:
         product = row['product']
         row['product_id'] = products_dict[product]
@@ -114,7 +112,8 @@ for item in codes_raw :
         i = 0
         for item in vendors:
             vendor = vendors[i]
-            print(code,vendor,vendors_dict[vendor])
+            cursor.execute(insert_vendors_codes,(code+vendors_dict[vendor],code,vendors_dict[vendor]))
+            postgres_connection.commit()
             i+=1
 
 # Inserting into codes
