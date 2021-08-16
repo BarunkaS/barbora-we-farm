@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS public.codes
     user_id integer,
     product_id integer,
     status text,
-    code_vendor_id integer,
     date_added date,
     PRIMARY KEY (id)
 );
@@ -34,8 +33,7 @@ CREATE TABLE IF NOT EXISTS public.products
 
 CREATE TABLE IF NOT EXISTS public.code_vendor
 (
-    code_vendor_id bigint NOT NULL,
-    code_id bigint,
+    code_id bigint NOT NULL,
     vendor_id integer,
     PRIMARY KEY (voucher_vendor_id),
     CONSTRAINT voucher_vendor_id FOREIGN KEY (voucher_vendor_id)
