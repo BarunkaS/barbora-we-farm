@@ -94,6 +94,7 @@ for item in all_voucher_rows:
     for row in item:
         product = row['product']
         row['product_id'] = products_dict[product]
+        row['id'] = abs(int(hash(row['voucher_code'])))
         row.pop('product')
 
 # Inserting into codes
