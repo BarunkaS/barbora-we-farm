@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS public.products
 
 CREATE TABLE IF NOT EXISTS public.code_vendor
 (
-    voucher_vendor_id bigint NOT NULL,
+    code_vendor_id bigint NOT NULL,
     code_id bigint,
     vendor_id integer,
     PRIMARY KEY (voucher_vendor_id),
