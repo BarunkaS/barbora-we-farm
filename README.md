@@ -2,6 +2,18 @@
 
 Goal of this repository is to process raw voucher codes as coming from our platform to a PostgreSQL database.
 
+### Final output
+
+## Repository structure
+
+### Repo contains:
+- [Folders data/vouchers](data/vouchers) -  Separate files, one file is one day worth of vouchers
+- [Postgres setup file](setup-postgres.sql) - Contains queries that set up the initial structure of target PostgreSQL databas
+- [Main script](main.py)
+- [Requirements](requirements.txt)
+
+## Setting up
+
 
 ## To-Do
 
@@ -25,7 +37,7 @@ Goal of this repository is to process raw voucher codes as coming from our platf
 11. Solve for errors and exceptions where needed (wrong file format in folder?,...)
 12. Document readme - steps for installation and/or any dependencies, instructions on running/building
 
-**Next step:** Load {code: list of vendors} in a dict
+**Next step:** Code reusability & split for readability
 
 ## Setting up PostgreSQL
 
