@@ -1,0 +1,489 @@
+commit 33915b46412c115fd6a0fb76658be4db0401443f (HEAD -> main, origin/main)
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 13:12:50 2021 +0100
+
+    Update README.md
+
+commit 10e369389e6d8697aac39c032e529f6cd14de154
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 13:04:01 2021 +0100
+
+    Delete users table definition
+
+commit abe15b89c83ab2e5a1ad3a04abbeb675a25d7a99
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 13:01:38 2021 +0100
+
+    Update README.md
+
+    Deleted todo list
+
+commit d8cc00b7191782d7928da1de111b006abdf0ffdb
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:57:48 2021 +0100
+
+    Update README.md
+
+commit 64aff689a925cdc734f19c164f6698ac637e73fb
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:57:41 2021 +0100
+
+    Handles wrong file types
+
+commit 0ab84ff02b5edfd8726603bd0116da1ba5a5b616
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:57:21 2021 +0100
+
+    Clean main.py
+
+commit 4de4abfe17cf9ce2bfa7b83a5afa8bc7bf2bbb08
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:56:56 2021 +0100
+
+    Added txt file for testing
+
+commit 9ea4386fb078385fe9768e2fc823fe9d67638759
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:42:18 2021 +0100
+
+    Create requirements.txt
+
+commit eea6b0a5ce268d54447687250cbdf71915e85124
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:38:58 2021 +0100
+
+    Cleaning main.py
+
+commit 271954f492f71cb3beb5f82014884c8cbac4b4a8
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:38:10 2021 +0100
+
+    Documenting modules.py
+
+commit 521afa0f117faf541cf2199718e6b8e49d6625c8
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:29:17 2021 +0100
+
+    Use populate_codes
+
+commit 9cc2cffe517e466d4a87c10723775c15a5a32a3c
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:27:58 2021 +0100
+
+    Create populate_codes
+
+commit bb5e546731727539ddf1aeeaef7ae1ac227590cd
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:22:20 2021 +0100
+
+    Use populate_code_vendor
+
+commit 7fe2625d87943307f76e1ee096e604b6bdbfdcae
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:21:51 2021 +0100
+
+    Use table_to_dict
+
+commit 52d8fc99f9cedca42ea6fd58d7ebdbd9915cf7b0
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:20:11 2021 +0100
+
+    Add populate_code_vendor
+
+commit 7bd148fe71a44511d20b1be52141431916202df5
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:13:04 2021 +0100
+
+    Use insert_dimension_table
+
+    Simplifies inserting into dimension tables
+
+commit 6fe668b711a0e504f2a4b11140247aadfd10d54a
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 12:11:38 2021 +0100
+
+    Create table_to_dict function
+
+commit f6cdb48c79d4d00d04beefc46cb9bb3cd57a13a7
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 11:49:26 2021 +0100
+
+    Introduce reusable modules
+
+    Reading all files, creating unique dimension lists for products and vendors
+
+commit d8f349c0dad856dc87981bd838e8089c7df0a5ff
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 11:47:33 2021 +0100
+
+    Create listing_dimensions + insert_dimension_table
+
+commit 9a202545103783d1a2629f94b46a8f0ba4fd83f6
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Tue Aug 17 11:12:03 2021 +0100
+
+    Create modules.py
+
+commit 3d0e11c1bb63ff5581ae06ddbcfc6c9cef5e9c27
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 17:37:49 2021 +0100
+
+    Start documenting
+
+commit b1403e8a728f0288cb2ac864483cc72e8fec8708
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 17:16:31 2021 +0100
+
+    Update README.md
+
+    Update ToDo list
+
+commit 81f850029aac2fd68f667543cdb9c8e9a51dfb03
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 17:13:03 2021 +0100
+
+    Format insert queries
+
+commit b5b3df76389fe298d32662cb81ad7a03d277338c
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 17:12:41 2021 +0100
+
+    Complete insert into codes
+
+commit 15b006bab4de6ff79b6cee3321309a74920c52d3
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 17:01:51 2021 +0100
+
+    Delete code_vendor_id
+
+    Delete  code_vendor_id on both codes and join code_vendor tables.
+
+commit 355ed4a518cba15c5312e65cca0352e1b227f203
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 16:56:26 2021 +0100
+
+    Execute insert into vendors_codes
+
+commit 635dbfd762d2b5a6e0dd9b44121724204d94610e
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 16:51:44 2021 +0100
+
+    Update setup-postgres.sql
+
+commit d461c8a1f5895ee69ae109b834e2d37d6cb3005e
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 16:50:00 2021 +0100
+
+    Update setup-postgres.sql
+
+    Redefine IDs to bigint as they come from hashed values
+
+commit 35a333de944ecec98c4a9605df91267614a1b390
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 16:36:52 2021 +0100
+
+    Assign codes_raw earlier
+
+commit 2636dea8f0dc837163ccc4f8bc419b6c116f709a
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 16:33:37 2021 +0100
+
+    Populate code_vendor table
+
+commit 356d59c03a5c7700ae17d727c433fa61515fec66
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Mon Aug 16 15:47:49 2021 +0100
+
+    Generate id in all_voucher_rows
+
+commit 0116bb8647d74ade57d6250f77e3a35fb5843912
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 18:01:52 2021 +0100
+
+    Update README.md
+
+    Update to-do list
+
+commit 647a1c61c9b417d889ff2b66bd2f86799369f8f5
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 17:53:18 2021 +0100
+
+    Cleaning
+
+commit d921d513c32332f9b238ddc58c7ea07f021e7957
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 17:45:01 2021 +0100
+
+    Fix inserting vendors
+
+commit 02783de73247698ffc2df0c2792a3e7e7bdc4c46
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 17:44:19 2021 +0100
+
+    Fix product inserts
+
+commit 6eda5ca7a31a4d0e9af6f5f896fd8b9f586137ee
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 17:33:32 2021 +0100
+
+    Read all files
+
+commit 94aec28e9c302eae11bd41e17516befbb9163b67
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 17:10:22 2021 +0100
+
+    Replace product with product_id
+
+    Finished replacing product with IDs. Retrieving from the products table.
+
+commit bfb84da4712b6815e07e189e29d7a54528e5f70f
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 12:54:28 2021 +0100
+
+    Update select queries
+
+commit 933720b33d52a5a88a98be3f9ca5775bb1304412
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 12:53:14 2021 +0100
+
+    Replace product with product_id
+
+    Introducing product replacements on the code table.
+
+commit 3a0037ddf787fcee128f505238adb149ce2dc6f2
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 12:20:45 2021 +0100
+
+    Cleaning file
+
+commit 71e6dea17cc00ae8af6c1351ef7d8cb25ce3a7a4
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 12:20:09 2021 +0100
+
+    Insert into products and vendors
+
+    Takes unique values of products and vendors and populates their respective tables.
+
+commit e51abf7f48b3a03ff2f2d852e050d2095826d6e4
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sun Aug 15 10:11:29 2021 +0100
+
+    Get code, user, id from dict
+
+    Previously was unnecesarily using a dataframe to access it. This is simpler.
+
+commit fb36aee300df13852b3b115c24aaf8014cd0fabd
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 16:32:16 2021 +0100
+
+    Comments where to continue
+
+    Check lines 57 and 41.
+
+commit 41bfbdd08c7edbb0da3eab0c54086f9ddf7bd720
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 16:29:33 2021 +0100
+
+    Saved progress (steps 1-5)
+
+commit 43fccf272c8e1e1831bd9e7899713b1d8f7a2301
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 16:26:33 2021 +0100
+
+    Tests insert from data
+
+commit 8095dbe459ab661bbaeb82642733687833c05d63
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 16:25:46 2021 +0100
+
+    Change ID datatype
+
+commit 94a5f2bc372ffec9018864f83b4169ce790a8472
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 15:52:58 2021 +0100
+
+    Count file lenght
+
+commit 009cb758f5cfa965fcb8e877c9832415b8416ca6
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 15:47:07 2021 +0100
+
+    Import pandas
+
+commit 2a896be4202dbd1d562a5c78b7fc0e72e0bb499e
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 15:46:54 2021 +0100
+
+    Read all files
+
+commit 02182933590bdf4944510a23b24f8fa123380413
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 15:41:28 2021 +0100
+
+    Tests insert query
+
+commit 1165f5106d584129d3b427e5d570acdb3518946c
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 15:40:38 2021 +0100
+
+    Creates DB schema
+
+commit 6e3ddafb643fe9b20052bcd04799ffaea0057bb2
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 14:51:12 2021 +0100
+
+    Create db, role, grant access
+
+commit 7a0b4d39679dd85289ca42f9e916748511b9f023
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 14:49:29 2021 +0100
+
+    Create setup-postgres.sql
+
+commit bda371bf9d5773d262000a29ae56cbcf730580e9
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 14:44:32 2021 +0100
+
+    Connecting to Postgres
+
+    Connects and creates cursor
+
+commit 5a30b871e8c2f060bee1338a1c30f735383313e5
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 14:40:23 2021 +0100
+
+    Read DB credentials from .env
+
+    Added script to read environment variables.
+
+    Also imports required packages: os, os.path, dotenv.
+
+commit 7be772f1b63c81facb1f8f0ebee568ea69185a79
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 14:29:51 2021 +0100
+
+    Import glob
+
+commit 3afbc075df6365baf2ed40dd29860196529c9626
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 14:06:14 2021 +0100
+
+    Count voucher_code frequency
+
+    Answering the question wether codes come multiple times with different statuses. This would have to be reflected in the DB schema.
+
+    Answer seems to be no.
+
+commit bf01656461fbf4f26cf0b90a680849f831f99a5a
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:45:43 2021 +0100
+
+    Ingest all voucher files at once
+
+    Inputting all files for exploration.
+
+    Used to explore wether codes come historized as they are redeemed.
+
+commit 81ae9e675e5abb70df0d2aa95f3f1a9965cd2261
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:21:36 2021 +0100
+
+    Import glob
+
+commit 685b46dcfabeda2bbe60a55bf4ef97279a26320b
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:17:01 2021 +0100
+
+    Comment outputs
+
+commit 5383c4bed0c18ef7cd058621587f4222d55c018a
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:14:31 2021 +0100
+
+    Comment added
+
+commit 985884bafbad5c7879514076b4c95066bac2599d
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:13:45 2021 +0100
+
+    Explore vendor data
+
+commit 6e7b606f221e394dc7e4db3447b5f729330a03a1
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:11:53 2021 +0100
+
+    Import numpy
+
+commit 10d3616d20d3d6b5e2cd45719bb071b3239fa1c8
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:10:48 2021 +0100
+
+    Import itertools
+
+commit 53b97f7680185f39c62ac89a90d270449be5ec6d
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 12:10:22 2021 +0100
+
+    Explore data values
+
+    Do initial explore with info, head, shape.
+
+    Explore unique values of products, statuses.
+
+commit 258b0bc5dfa6db85b68b98a1eb056e703689eb6c
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 11:53:47 2021 +0100
+
+    Read path and open single file
+
+commit 28145935f2cacc4efebe4e5f2a9a658794ee0ef7
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 11:06:14 2021 +0100
+
+    Add pandas alias
+
+commit 33caae58b8ac60b02a2cb61d0503a08d33e72165
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 11:04:36 2021 +0100
+
+    Create data-explore.py
+
+    Script explores data structure within single json file.
+
+    Kept in repo for reproducibility.
+
+commit bab374802daa6e7b867ed4eee84c89dc5a4f4828
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 10:52:43 2021 +0100
+
+    Introduce To-Do list
+
+    Introduce To-Dos for the case.
+
+    Will be deleted at a later stage.
+
+commit 0084d38796a11299bd797b675cbc503dd999b31c
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 10:42:05 2021 +0100
+
+    Import packages
+
+    Packages to open gz files, load jsons from file, connect to PostgreSQL
+
+commit 1307f84fd868e5a2411247a3dc0b902cbf296cdf
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 10:32:43 2021 +0100
+
+    Initiate main.py
+
+commit 464c9e59c05fac8307ce7fb921bc4948a37b298b
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 10:27:17 2021 +0100
+
+    Data added
+
+commit d53e1c43dc95569966fae012aeb0c336486151a8
+Author: BarunkaS <34685093+BarunkaS@users.noreply.github.com>
+Date:   Sat Aug 14 10:26:18 2021 +0100
+
+    Initial commit
