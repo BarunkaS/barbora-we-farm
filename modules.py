@@ -22,3 +22,19 @@ def read_all_files(folder_path):
             voucher_rows = list(json_voucher.values())[0]
             all_voucher_rows.append(voucher_rows)
     return all_voucher_rows
+
+def listing_dimensions(dataset,dimension_name):
+    dimension_list = []
+    for item in dataset:
+        for row in item:
+            dimension_list.append(row[dimension_name])
+    return dimension_list
+
+def insert_dimension_table(postgres_connection, cursor, insert_query, dimension_list):
+    unique_items = list(set(dimension_list))
+    item_ids = list(range(1,len(unique_items)+1))
+
+    for i in range(0,len(unique_items)):
+        cursor.execute(insert_query,(item_ids[i],unique_items[i]))
+        postgres_connection.commit()
+    return None
