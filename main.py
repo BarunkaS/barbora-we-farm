@@ -1,9 +1,7 @@
 import psycopg2
-from psycopg2 import Error
 from os.path import join, dirname
 import os
 from dotenv import load_dotenv
-from datetime import date
 import modules
 
 # Load DB credentials from environment
