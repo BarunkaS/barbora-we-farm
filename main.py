@@ -9,6 +9,7 @@ import os
 from dotenv import load_dotenv
 import pandas as pd
 from datetime import date
+import modules
 
 # Load DB credentials from environment
 dotenv_path = join(dirname(__file__),'.env')
@@ -29,9 +30,6 @@ postgres_connection = psycopg2.connect(user=db_user,
 # Create cursor to perform database operations
 cursor = postgres_connection.cursor()
 
-# Read file paths
-daily_vouchers_paths = glob.glob("data/vouchers/*")
-
 # INSERT and SELECT queries
 insert_codes = """INSERT INTO public.codes (id,voucher_code,user_id,product_id,status,date_added) 
                 VALUES (%s,%s,%s,%s,%s,%s)"""
@@ -45,31 +43,19 @@ insert_vendors_codes = """INSERT INTO public.code_vendor (code_vendor_id,code_id
 select_products = """SELECT * FROM public.products"""
 select_vendors = """SELECT * FROM public.vendors"""
 
-# Read all files
-all_voucher_rows = []
-for file in daily_vouchers_paths:
-    with gzip.open(file, "r") as file:
-        voucher_file = file.read()
-        json_voucher = json.loads(voucher_file)
-        voucher_rows = list(json_voucher.values())[0]
-        all_voucher_rows.append(voucher_rows)
+# Read file paths
+daily_vouchers_path = "data/vouchers/*"
 
-# Data for modifications
-codes_raw = all_voucher_rows
+# Read all files
+codes_raw = modules.read_all_files(daily_vouchers_path)
 
 # Getting unique products and vendors
-products = []
-vendors = []
-
-for item in all_voucher_rows:
-    for row in item:
-        products.append(row['product'])
-        vendors.append(row['vendor'])
+products = modules.listing_dimensions(codes_raw,'product')
+vendors = modules.listing_dimensions(codes_raw,'vendor')
 
 # Inserting products and creating IDs
 unique_products = list(set(products))
 product_ids = list(range(1,len(unique_products)+1))
-
 
 for i in range(0,len(unique_products)):
     cursor.execute(insert_products,(product_ids[i],unique_products[i]))
@@ -118,11 +104,11 @@ for item in codes_raw:
         i = 0
         for item in vendors:
             vendor = vendors[i]
-            cursor.execute(insert_vendors_codes,(code,vendors_dict[vendor]))
+            cursor.execute(insert_vendors_codes,(code+vendors_dict[vendor],code,vendors_dict[vendor]))
             postgres_connection.commit()
             i+=1
 
-# Inserting into codes
+# Populating codes
 for item in codes_raw:
     for row in item:
         voucher_code = row['voucher_code']
