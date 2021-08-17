@@ -30,8 +30,8 @@ Goal of this repository is to process raw voucher codes as coming from our platf
     - DONE - Load vendor names and ids in a dict
     - DONE - Replace items in each list of vendors with IDs from vendor dict
     - DONE - Populate code_vendor to db (for each list item, insert code and item)
-7. Create reusability
-8. Separate code for readability
+7. DONE - Create reusability
+8. DONE - Separate code for readability
 9. DONE - Load all files
 10. Consistency and integrity testing (??)
 11. Solve for errors and exceptions where needed (wrong file format in folder?,...)
