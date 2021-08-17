@@ -1,13 +1,8 @@
-import gzip
-import json
 import psycopg2
 from psycopg2 import Error
-from datetime import datetime
-import glob
 from os.path import join, dirname
 import os
 from dotenv import load_dotenv
-import pandas as pd
 from datetime import date
 import modules
 
@@ -54,12 +49,7 @@ products = modules.listing_dimensions(codes_raw,'product')
 vendors = modules.listing_dimensions(codes_raw,'vendor')
 
 # Inserting products and creating IDs
-unique_products = list(set(products))
-product_ids = list(range(1,len(unique_products)+1))
-
-for i in range(0,len(unique_products)):
-    cursor.execute(insert_products,(product_ids[i],unique_products[i]))
-    postgres_connection.commit()
+modules.insert_dimension_table(postgres_connection, cursor, insert_products, products)
 
 # Inserting vendors and creating IDs
 flattened_vendors = []
@@ -68,12 +58,7 @@ for sublist in vendors:
     for item in sublist:
         flattened_vendors.append(item)
 
-unique_vendors = list(set(flattened_vendors))
-vendor_ids = list(range(1,len(unique_vendors)+1))
-
-for i in range(0,len(unique_vendors)):
-    cursor.execute(insert_vendors,(vendor_ids[i],unique_vendors[i]))
-    postgres_connection.commit()
+modules.insert_dimension_table(postgres_connection, cursor, insert_vendors, flattened_vendors)
 
 # Replace product and vendor with IDs in codes_raw
 # Products
