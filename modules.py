@@ -1,15 +1,9 @@
 import gzip
 import json
-import psycopg2
-from psycopg2 import Error
-from datetime import datetime
 import glob
-from os.path import join, dirname
-import os
-from dotenv import load_dotenv
-import pandas as pd
 from datetime import date
 
+# Reads all files and saves data in a list
 def read_all_files(folder_path):
     all_voucher_rows = []
     # Read file paths
@@ -23,6 +17,7 @@ def read_all_files(folder_path):
             all_voucher_rows.append(voucher_rows)
     return all_voucher_rows
 
+# Takes dimensional data from full dataset and creates a list of them
 def listing_dimensions(dataset,dimension_name):
     dimension_list = []
     for item in dataset:
@@ -30,6 +25,7 @@ def listing_dimensions(dataset,dimension_name):
             dimension_list.append(row[dimension_name])
     return dimension_list
 
+# Takes list of unique dimensions and inserts into dimensional (peripheral) table
 def insert_dimension_table(postgres_connection, cursor, insert_query, dimension_list):
     unique_items = list(set(dimension_list))
     item_ids = list(range(1,len(unique_items)+1))
@@ -39,6 +35,8 @@ def insert_dimension_table(postgres_connection, cursor, insert_query, dimension_
         postgres_connection.commit()
     return None
 
+# Retrieves data from dimensional table and creates a dictionary
+# Used for mathing ids in the codes table
 def table_to_dict(cursor, select_statement):
     cursor.execute(select_statement)
     query_result = cursor.fetchall()
@@ -47,6 +45,7 @@ def table_to_dict(cursor, select_statement):
     final_dict = { j:k for k,j in inverted_dict.items()}
     return final_dict
 
+# Takes full dataset and populates the code_vendor table
 def populate_code_vendor(postgres_connection, cursor, insert_statement, dataset, dimension_dict):
     for item in dataset:
         for row in item:
@@ -59,6 +58,7 @@ def populate_code_vendor(postgres_connection, cursor, insert_statement, dataset,
                 postgres_connection.commit()
                 i+=1
 
+# Takes full dataset and populates the codes table
 def populate_codes(postgres_connection, cursor, insert_statement, dataset):
     for item in dataset:
         for row in item:
