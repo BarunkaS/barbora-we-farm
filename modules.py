@@ -38,3 +38,11 @@ def insert_dimension_table(postgres_connection, cursor, insert_query, dimension_
         cursor.execute(insert_query,(item_ids[i],unique_items[i]))
         postgres_connection.commit()
     return None
+
+def table_to_dict(cursor, select_statement):
+    cursor.execute(select_statement)
+    query_result = cursor.fetchall()
+
+    inverted_dict = dict(query_result)
+    final_dict = { j:k for k,j in inverted_dict.items()}
+    return final_dict
