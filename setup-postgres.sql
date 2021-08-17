@@ -17,13 +17,6 @@ CREATE TABLE IF NOT EXISTS public.codes
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS public.users
-(
-    user_id integer NOT NULL,
-    name text,
-    PRIMARY KEY (user_id)
-);
-
 CREATE TABLE IF NOT EXISTS public.products
 (
     product_id integer NOT NULL,
@@ -47,4 +40,3 @@ CREATE TABLE IF NOT EXISTS public.vendor
     PRIMARY KEY (vendor_id)
 );
 
---- 
