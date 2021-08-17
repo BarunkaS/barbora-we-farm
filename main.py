@@ -60,15 +60,10 @@ for sublist in vendors:
 
 modules.insert_dimension_table(postgres_connection, cursor, insert_vendors, flattened_vendors)
 
-# Replace product and vendor with IDs in codes_raw
-# Products
-cursor.execute(select_products)
-result_products = cursor.fetchall()
+# Replace product with product_id, generate ID in codes
+products_dict = modules.table_to_dict(cursor, select_products)
 
-products_reverted_dict = dict(result_products)
-products_dict = { j:k for k,j in products_reverted_dict.items()}
-
-for item in codes_raw:
+for item in codes_raw :
     for row in item:
         product = row['product']
         row['product_id'] = products_dict[product]
@@ -76,11 +71,7 @@ for item in codes_raw:
         row.pop('product')
 
 # Populating code_vendor
-cursor.execute(select_vendors)
-result_vendors = cursor.fetchall()
-
-vendors_inverted_dict = dict(result_vendors)
-vendors_dict = { j:k for k,j in vendors_inverted_dict.items()}
+vendors_dict = products_dict = modules.table_to_dict(cursor, select_vendors)
 
 for item in codes_raw:
     for row in item:
