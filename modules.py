@@ -58,3 +58,16 @@ def populate_code_vendor(postgres_connection, cursor, insert_statement, dataset,
                 cursor.execute(insert_statement,(code+dimension_dict[vendor],code,dimension_dict[vendor]))
                 postgres_connection.commit()
                 i+=1
+
+def populate_codes(postgres_connection, cursor, insert_statement, dataset):
+    for item in dataset:
+        for row in item:
+            voucher_code = row['voucher_code']
+            user_id = row['user_id']
+            product_id = row['product_id']
+            status = row['status']
+            date_added = date.today()
+            id = abs(int(hash(row['voucher_code'])))
+
+            cursor.execute(insert_statement,(id,voucher_code,user_id,product_id,status,date_added))
+            postgres_connection.commit()
