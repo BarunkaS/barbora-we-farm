@@ -3,6 +3,7 @@ from os.path import join, dirname
 import os
 from dotenv import load_dotenv
 import modules
+import gzip
 
 # Load DB credentials from environment
 dotenv_path = join(dirname(__file__),'.env')
@@ -36,10 +37,8 @@ insert_vendors_codes = """INSERT INTO public.code_vendor (code_vendor_id,code_id
 select_products = """SELECT * FROM public.products"""
 select_vendors = """SELECT * FROM public.vendors"""
 
-# Read file paths
-daily_vouchers_path = "data/vouchers/*"
-
 # Read all files
+daily_vouchers_path = "data/vouchers/*"
 codes_raw = modules.read_all_files(daily_vouchers_path)
 
 # Getting unique products and vendors
