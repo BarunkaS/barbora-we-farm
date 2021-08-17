@@ -75,14 +75,4 @@ vendors_dict = products_dict = modules.table_to_dict(cursor, select_vendors)
 modules.populate_code_vendor(postgres_connection, cursor, insert_vendors_codes, codes_raw, vendors_dict)
 
 # Populating codes
-for item in codes_raw:
-    for row in item:
-        voucher_code = row['voucher_code']
-        user_id = row['user_id']
-        product_id = row['product_id']
-        status = row['status']
-        date_added = date.today()
-        id = abs(int(hash(row['voucher_code'])))
-
-        cursor.execute(insert_codes,(id,voucher_code,user_id,product_id,status,date_added))
-        postgres_connection.commit()
+modules.populate_codes(postgres_connection, cursor, insert_codes, codes_raw)
