@@ -10,11 +10,14 @@ def read_all_files(folder_path):
     daily_vouchers_paths = glob.glob(folder_path)
     #Read files
     for file in daily_vouchers_paths:
-        with gzip.open(file, "r") as file:
-            voucher_file = file.read()
-            json_voucher = json.loads(voucher_file)
-            voucher_rows = list(json_voucher.values())[0]
-            all_voucher_rows.append(voucher_rows)
+        try:
+            with gzip.open(file, "r") as file:
+                voucher_file = file.read()
+                json_voucher = json.loads(voucher_file)
+                voucher_rows = list(json_voucher.values())[0]
+                all_voucher_rows.append(voucher_rows)
+        except(gzip.BadGzipFile):
+            pass
     return all_voucher_rows
 
 # Takes dimensional data from full dataset and creates a list of them
