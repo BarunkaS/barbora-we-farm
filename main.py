@@ -72,17 +72,7 @@ for item in codes_raw :
 
 # Populating code_vendor
 vendors_dict = products_dict = modules.table_to_dict(cursor, select_vendors)
-
-for item in codes_raw:
-    for row in item:
-        vendors = row['vendor']
-        code = row['id']
-        i = 0
-        for item in vendors:
-            vendor = vendors[i]
-            cursor.execute(insert_vendors_codes,(code+vendors_dict[vendor],code,vendors_dict[vendor]))
-            postgres_connection.commit()
-            i+=1
+modules.populate_code_vendor(postgres_connection, cursor, insert_vendors_codes, codes_raw, vendors_dict)
 
 # Populating codes
 for item in codes_raw:
