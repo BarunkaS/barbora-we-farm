@@ -46,3 +46,15 @@ def table_to_dict(cursor, select_statement):
     inverted_dict = dict(query_result)
     final_dict = { j:k for k,j in inverted_dict.items()}
     return final_dict
+
+def populate_code_vendor(postgres_connection, cursor, insert_statement, dataset, dimension_dict):
+    for item in dataset:
+        for row in item:
+            vendors = row['vendor']
+            code = row['id']
+            i = 0
+            for item in vendors:
+                vendor = vendors[i]
+                cursor.execute(insert_statement,(code+dimension_dict[vendor],code,dimension_dict[vendor]))
+                postgres_connection.commit()
+                i+=1
